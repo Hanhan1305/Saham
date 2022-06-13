@@ -1,129 +1,92 @@
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+def main():
+    print(30*"=")
+    print("\n")
+    print("Info lot mas e")
+    print("Silahkan pilih menu dibawah")
+    print("1. Convert Lot")
+    print("2. Beli Saham")
+    print("3. Cek Keuntungan/kerugian")
+    print("4. Exit")
+    print("\n")
+    print(30*"=")
+    print("\n")
+    menu = input("Masukan Menu, 1/2/3? = ")
+    print("\n")
+    if menu == "1":
+        convert()
+    elif menu == "2":
+        buy()
+    elif menu == "3":
+        untung()
+    elif menu == "4":
+        exit()
+    else:
+        print("Hanya 1/2/3/4")
+    main()
 
-# C extensions
-*.so
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-pip-wheel-metadata/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+def buy():
+    print("Beli apa..")
+    nama = input("nama saham mu = ")
+    harga = int(input("Masukan Harga = "))
+    lot = int(input("Masukan lot = "))
+    lot1 = lot*100
+    rumus = harga*lot1
+    print("Jadi total saham", nama, "Mu adalah", rumus)
+    print("\n")
+    main()
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+def convert():
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
+    print(30*"=")
+    print("\n")
+    print("""SAHAM YANG DIMILLIKI : 
+________________________""")
+    print("\n")
+    nama = input("Masukan nama saham = ")
+    print("Hai,", "Silahkan isi dibawah ini = ")
+    input1 = int(input("Masukan Jumlah Lot = "))
+    input12 = int(input("Masukan harga per lembar = "))
+    print(30*"=")
+    print("\n")
 
-# Translations
-*.mo
-*.pot
+    jumlah1 = input1*input12
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+    print("""SAHAM YANG INGIN DIBELI
+____________________""")
+    print("\n")
+    input2 = int(input("Masukan jumlah lot yang akan di avg down = "))
+    input22 = int(input("Masukan harga yg akan di avg down = "))
 
-# Flask stuff:
-instance/
-.webassets-cache
+    jumlah2 = input2*input22
+    lotjumlah = input1+input2
+    rumus = jumlah1+jumlah2
 
-# Scrapy stuff:
-.scrapy
+    rumus2 = rumus/lotjumlah
+    print("Jadi total avg saham", nama, "kamu sekarang adalah", rumus2)
+    print("\n")
+    option = input("Kembali ke menu?(y/n)= ")
+    if option == "y" or option == "Y":
+        main()
+    elif option == "n" or option == "N":
+        exit()
+    else:
+        print("CUMAN PILIH Y / N")
 
-# Sphinx documentation
-docs/_build/
 
-# PyBuilder
-target/
+def untung():
 
-# Jupyter Notebook
-.ipynb_checkpoints
+    jumlah1 = int(input("Masukan jumlah lot saat ini = "))
+    beli1 = int(input("Masukan harga beli saat ini = "))
+    harga2 = int(input("Masukan Harga saat ini = "))
+    lot = jumlah1*100
+    total1 = lot*beli1
+    total2 = lot*harga2
+    jumlah = total2-total1
+    if jumlah <= beli1:
+        print("Kamu rugi sebesar ", jumlah)
+    if jumlah >= beli1:
+        print("Kamu untung sebesar ", jumlah)
 
-# IPython
-profile_default/
-ipython_config.py
 
-# pyenv
-.python-version
-
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
-
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow
-__pypackages__/
-
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
-
-# SageMath parsed files
-*.sage.py
-
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
-
-# Spyder project settings
-.spyderproject
-.spyproject
-
-# Rope project settings
-.ropeproject
-
-# mkdocs documentation
-/site
-
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
-
-# Pyre type checker
-.pyre/
